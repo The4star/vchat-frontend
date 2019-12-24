@@ -1,0 +1,134 @@
+@import "../../style-variables.scss";
+
+.hidden-chatbot {
+    position: absolute;
+    right: 50px;
+    bottom: 30px;
+    border-radius: 100px;
+    height: 100px;
+    width: 100px;
+    box-shadow: 3px 3px 5px black;
+    cursor: pointer;
+    overflow: hidden;
+    
+    .logo-hider {
+        vertical-align: bottom;
+        transition: .5s
+    }
+
+    .logo-hider:hover {
+        transform: scale(1.1);
+        transition: .5s
+    }
+}
+
+.chatbot {
+    position: absolute;
+    right: 50px;
+    bottom: 30px;
+    height: 650px;
+    width: 500px;
+    box-shadow: 2px 2px 5px black;
+    border-radius: 10px;
+    background-color: white;
+    // -webkit-animation: grow 1s ease;
+    // animation: grow 1s ease;
+
+    .messages-container{
+        height: 470px;
+        width: 500px;
+        overflow: auto;
+    }
+
+    .main-title {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+        padding: 5px;
+        color: #ACA4A4;
+        font-size: 20px;
+
+        .logowrapper {
+            border-radius: 100px;
+            height: 100px;
+            width: 100px;
+            box-shadow: 3px 3px 5px black;
+            overflow: hidden;
+    
+            img {
+                vertical-align: bottom
+            }
+        }
+
+        .text {
+            margin: 10px;
+        }
+
+        .close-button {
+            cursor: pointer;
+            line-height: 0;
+            display: flex;
+
+            &:hover {
+                color: black;
+                transition: .5s;
+            }
+        }
+    }
+    
+    form{
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        border-top: 1px solid #ACA4A4;
+    }
+
+    .user-input {
+        width:90%;
+        height:40px;
+        font-size: 20px;
+        border: none;
+        padding: 5px;
+        background-color: #ebf1f1;
+    }
+
+    .submit{
+        width: 9%;
+        height: 50px;
+        background: $submit-button-color;
+        border: none;
+        border-radius: 0 0 10px;
+        color: $submit-icon-color;
+        cursor: pointer;
+    }
+}
+
+@keyframes grow {
+    0%   { height: 10%; width: 10%; position: absolute;}
+    100% { height: 650px; width: 500px; position: absolute;}
+}
+
+@media only screen and (max-width: 600px) {
+    .chatbot {
+        height:85%;
+        width: 95%;
+        right: 10px;
+
+        .messages-container{
+            width: 100%;
+            height: 65%;
+        }
+    }
+
+    .hidden-chatbot {
+        right: 10px;
+    }
+
+    @keyframes grow {
+        0%   { height: 10%; width: 10%;}
+        100% { height: 650px; width: 95%; }
+    }
+   
+  }

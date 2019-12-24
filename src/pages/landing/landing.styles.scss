@@ -1,0 +1,17 @@
+.landing {
+    text-align: center;
+    
+    h1 {
+        font-size: 80px;
+        margin: 20px 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+  
+    .landing {
+        h1 {
+            font-size: 18px;
+        }
+    }
+}
