@@ -1,3 +1,4 @@
+@import "../../../style-variables.scss";
 .card {
     width: 250px;
     height: 280px;
@@ -45,7 +46,7 @@
         border-radius: 5px;
         font-size: 18px;
         margin: 10px;
-        background: linear-gradient(180deg, rgba(208, 37, 37, 0.8) 0%, rgba(202, 29, 29, 0.8) 100%);
+        background: $chatbot-card-button-color;
         color: antiquewhite;
         border: none;
         cursor: pointer;
