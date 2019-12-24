@@ -1,7 +1,9 @@
-$header-color: linear-gradient(180deg, rgba(208, 37, 37, 0.8) 0%, rgba(202, 29, 29, 0.8) 100%);
-$submit-button-color: rgba(208, 37, 37, .8);
+$header-color: linear-gradient(180deg, #0B245B 0%, #113C9B 100%);;
+$submit-button-color: linear-gradient(180deg, #0B245B 0%, #113C9B 100%);
 $submit-icon-color: white;
-$chatbot-message-container-color: linear-gradient(180deg, rgba(208, 37, 37, 0.8) 0%, rgba(202, 29, 29, 0.8) 100%);
+$chatbot-message-container-color: rgba(24, 54, 145, 0.8);
+$chatbot-quickreply-container-color:  rgba(24, 54, 145, 0.8);
+$chatbot-card-button-color:  rgba(24, 54, 145, 0.8);
 $user-message-container-color: #ebf1f1;
 $typing-dot-color: white;
-$typing-dot-background-color: rgba(208, 37, 37, .8);
+$typing-dot-background-color: rgba(24, 54, 145, 0.8);
