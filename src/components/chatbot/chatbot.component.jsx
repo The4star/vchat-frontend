@@ -46,10 +46,11 @@ class Chatbot extends React.Component {
     }
     
     getChatHistory = async () => {
-      const response = await axios.post('http://localhost:5000/api/df_get_chat_history', {userId: cookies.get('userId')})
+      const response = await axios.post('https://1vex996e96.execute-api.us-east-1.amazonaws.com/dev/api/df_get_chat_history', {userId: cookies.get('userId')})
       const data = response.data 
-
-      if(data.previousSession) {
+      
+      if(data.previousSession && data.response.messages.length > 0) {
+        console.log(data.response.messages.length)
         this.setState({messages: [...data.response.messages]});
       } else {
         await this.eventQuery('Welcome');
@@ -66,7 +67,7 @@ class Chatbot extends React.Component {
 
             this.setState({messages: [...this.state.messages, message]})
 
-            const res = await axios.post('http://localhost:5000/api/df_text_query', {text, userId: cookies.get('userId')})
+            const res = await axios.post('https://1vex996e96.execute-api.us-east-1.amazonaws.com/dev/api/df_text_query', {text, userId: cookies.get('userId')})
             const allMessages = [];
             const botMessages = res.data.fulfillmentMessages; 
             const payloads = res.data.webhookPayload;
@@ -125,7 +126,7 @@ class Chatbot extends React.Component {
 
     eventQuery = async (event) => {
         try {
-            const res = await axios.post('http://localhost:5000/api/df_event_query', {event, userId: cookies.get('userId')})
+            const res = await axios.post('https://1vex996e96.execute-api.us-east-1.amazonaws.com/dev/api/df_event_query', {event, userId: cookies.get('userId')})
             const allMessages = []
             const botMessages = res.data.fulfillmentMessages 
             const payloads = res.data.webhookPayload
