@@ -213,9 +213,9 @@ class Chatbot extends React.Component {
 
     handleSubmit = async(e) => {
         e.preventDefault()
-        this.setState({hideDots: false})
         let submission = e.target.children[0]
         if (submission.value !== '') {
+          this.setState({hideDots: false})
            this.textQuery(submission.value)
             submission.value = '' 
         } else {
@@ -234,8 +234,7 @@ class Chatbot extends React.Component {
                         <div ref={(el) => this.messagesEnd = el}></div>
                     </div>
                 </div>     
-            )
-            
+            )   
         } else {
             return(
                 <div className="chatbot">
