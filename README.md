@@ -9,7 +9,7 @@ https://github.com/The4Star
 |-----------|
 | Clinton Forster | 
 
-Deployed Site: https://the-mrs.netlify.com/
+Deployed Site: https://vchat-bot.netlify.com/
 
 ## Purpose 
 
