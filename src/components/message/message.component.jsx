@@ -9,7 +9,7 @@ import QuickReply from '../chatbot/quick-reply/quick-reply.component';
 const Message = ({ speaker, text, cards, quickReplies, handleQuickReply, cardStyle, qRStyle }) => (
 
     <div className="wrapper">
-        {speaker === 'the MRS' &&
+        {speaker === 'vchat' &&
             <div className={cardStyle ? "message-container-bot-cards" : "message-container-bot" && qRStyle ? "message-container-bot-quick-replies" : "message-container-bot"}>
                 {
                     text &&

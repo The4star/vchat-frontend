@@ -1,5 +1,4 @@
 import React from 'react';
-import Router from './Router.jsx'
 
 // components
 import Chatbot from './components/chatbot/chatbot.component';

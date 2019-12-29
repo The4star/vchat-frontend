@@ -10,8 +10,8 @@ import TypingDots from './typing-dots/typing-dots.component'
 // sass
 import './chatbot.styles.scss'
 
-// chatbot logo
-import logo from '../../img/logo.jpg'
+// site where live chat bot is deployed set in src/helpers/deployed-url
+import deployedUrl from '../../helpers/deployed-url'
 
 const cookies = new Cookies();
 
@@ -77,7 +77,7 @@ class Chatbot extends React.Component {
                 splitMessages.map(splitMessage => {
                     if (splitMessage.length  > 1) {
                         let message = {
-                        speaker: 'the MRS',
+                        speaker: 'vchat',
                         msg:splitMessage
                         }
                         allMessages.push(message)  
@@ -87,7 +87,7 @@ class Chatbot extends React.Component {
             }
             if (payloads && payloads.fields && payloads.fields.cards) {
                 let message = {
-                    speaker: 'the MRS',
+                    speaker: 'vchat',
                     cards: payloads.fields.cards.listValue.values
                 }
                 allMessages.push(message)
@@ -95,7 +95,7 @@ class Chatbot extends React.Component {
 
             if (payloads && payloads.fields && payloads.fields.quickReplies) {
                 let message = {
-                    speaker: 'the MRS',
+                    speaker: 'vchat',
                     quickReplies: payloads.fields.quickReplies.listValue.values
                 }
                 allMessages.push(message)
@@ -136,7 +136,7 @@ class Chatbot extends React.Component {
                     splitMessages.map(splitMessage => {
                         if (splitMessage.length  > 1) {
                             let message = {
-                            speaker: 'the MRS',
+                            speaker: 'vchat',
                             msg:splitMessage
                             }
                             allMessages.push(message)  
@@ -147,7 +147,7 @@ class Chatbot extends React.Component {
             // add card message
             if (payloads && payloads.fields && payloads.fields.cards) {
                 let message = {
-                    speaker: 'the MRS',
+                    speaker: 'vchat',
                     cards: payloads.fields.cards.listValue.values
                 }
                 allMessages.push(message)
@@ -155,7 +155,7 @@ class Chatbot extends React.Component {
             // add quick reply message
             if (payloads && payloads.fields && payloads.fields.quickReplies) {
                 let message = {
-                    speaker: 'the MRS',
+                    speaker: 'vchat',
                     quickReplies: payloads.fields.quickReplies.listValue.values
                 }
                 allMessages.push(message)
@@ -230,7 +230,7 @@ class Chatbot extends React.Component {
             return (
                 <div className="hidden-chatbot" onClick={() => this.toggleBot()} >
                     <div className="logo-only">
-                        <img className="logo-hider" src={logo} alt="logo"/>
+                        <img className="logo-hider" src={`${deployedUrl}/img/logo.jpg`} alt="logo"/>
                         <div ref={(el) => this.messagesEnd = el}></div>
                     </div>
                 </div>     
@@ -240,7 +240,7 @@ class Chatbot extends React.Component {
                 <div className="chatbot">
                     <div className="main-title">
                         <div className="logowrapper">
-                          <img src={logo} alt="logo"/>  
+                          <img src={`${deployedUrl}/img/logo.jpg`} alt="logo"/>  
                         </div>
                         <div className="text">
                             <p className="close-button" onClick={() => this.toggleBot()}>
