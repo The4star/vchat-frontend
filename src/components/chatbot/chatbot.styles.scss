@@ -1,7 +1,7 @@
 @import "../../style-variables.scss";
 
 .hidden-chatbot {
-    position: absolute;
+    position: fixed;
     right: 50px;
     bottom: 30px;
     border-radius: 100px;
@@ -23,7 +23,7 @@
 }
 
 .chatbot {
-    position: absolute;
+    position: fixed;
     right: 50px;
     bottom: 30px;
     height: 650px;
