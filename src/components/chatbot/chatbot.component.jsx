@@ -11,7 +11,7 @@ import TypingDots from './typing-dots/typing-dots.component'
 import './chatbot.styles.scss'
 
 // site where live chat bot is deployed set in src/helpers/deployed-url
-import deployedUrl from '../../helpers/deployed-url'
+import { deployedURL, apiURL }  from '../../helpers/variables'
 
 const cookies = new Cookies();
 
@@ -46,7 +46,7 @@ class Chatbot extends React.Component {
     }
     
     getChatHistory = async () => {
-      const response = await axios.post('https://1vex996e96.execute-api.us-east-1.amazonaws.com/dev/api/df_get_chat_history', {userId: cookies.get('userId')})
+      const response = await axios.post(`${apiURL}/api/df_get_chat_history`, {userId: cookies.get('userId')})
       const data = response.data 
       
       if(data.previousSession && data.response.messages.length > 0) {
@@ -67,7 +67,7 @@ class Chatbot extends React.Component {
 
             this.setState({messages: [...this.state.messages, message]})
 
-            const res = await axios.post('https://1vex996e96.execute-api.us-east-1.amazonaws.com/dev/api/df_text_query', {text, userId: cookies.get('userId')})
+            const res = await axios.post(`${apiURL}/api/df_text_query`, {text, userId: cookies.get('userId')})
             const allMessages = [];
             const botMessages = res.data.fulfillmentMessages; 
             const payloads = res.data.webhookPayload;
@@ -126,7 +126,7 @@ class Chatbot extends React.Component {
 
     eventQuery = async (event) => {
         try {
-            const res = await axios.post('https://1vex996e96.execute-api.us-east-1.amazonaws.com/dev/api/df_event_query', {event, userId: cookies.get('userId')})
+            const res = await axios.post(`${apiURL}/api/df_event_query`, {event, userId: cookies.get('userId')})
             const allMessages = []
             const botMessages = res.data.fulfillmentMessages 
             const payloads = res.data.webhookPayload
@@ -230,7 +230,7 @@ class Chatbot extends React.Component {
             return (
                 <div className="hidden-chatbot" onClick={() => this.toggleBot()} >
                     <div className="logo-only">
-                        <img className="logo-hider" src={`${deployedUrl}/img/logo.jpg`} alt="logo"/>
+                        <img className="logo-hider" src={`${deployedURL}/img/logo.jpg`} alt="logo"/>
                         <div ref={(el) => this.messagesEnd = el}></div>
                     </div>
                 </div>     
@@ -240,7 +240,7 @@ class Chatbot extends React.Component {
                 <div className="chatbot">
                     <div className="main-title">
                         <div className="logowrapper">
-                          <img src={`${deployedUrl}/img/logo.jpg`} alt="logo"/>  
+                          <img src={`${deployedURL}/img/logo.jpg`} alt="logo"/>  
                         </div>
                         <div className="text">
                             <p className="close-button" onClick={() => this.toggleBot()}>
