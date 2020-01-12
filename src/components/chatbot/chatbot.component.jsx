@@ -42,7 +42,9 @@ class Chatbot extends React.Component {
     }
 
     componentDidUpdate = () => {
+      if (!process.env.JEST_WORKER_ID) {
         this.messagesEnd.scrollIntoView({behaviour: 'smooth'})
+      }
     }
     
     getChatHistory = async () => {
