@@ -39,7 +39,6 @@ class Chatbot extends React.Component {
     }
     componentDidMount = async () => {
         await this.getChatHistory();
-        this.isDeployedSite()
     }
 
     componentDidUpdate = () => {
