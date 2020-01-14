@@ -261,7 +261,6 @@ class Chatbot extends React.Component {
     }
 
     isDeployedSite = () => {
-      console.log(window.location.href)
       if (window.location.href === deployedURL) {
         return true
       }
