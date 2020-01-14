@@ -6,11 +6,11 @@ import './message.styles.scss'
 import Card from '../chatbot/card/card.component';
 import QuickReply from '../chatbot/quick-reply/quick-reply.component';
 
-const Message = ({ speaker, text, cards, quickReplies, handleQuickReply, cardStyle, qRStyle }) => (
+const Message = ({ speaker, text, cards, quickReplies, handleQuickReply, cardStyle, qRStyle, scriptStyle }) => (
 
     <div className="wrapper">
         {speaker === 'vchat' &&
-            <div className={cardStyle ? "message-container-bot-cards" : "message-container-bot" && qRStyle ? "message-container-bot-quick-replies" : "message-container-bot"}>
+            <div className={cardStyle ? "message-container-bot-cards" : "message-container-bot" && qRStyle ? "message-container-bot-quick-replies" : "message-container-bot" && scriptStyle ? "message-container-script" : "message-container-bot"}>
                 {
                     text &&
                     <div className="message-content">

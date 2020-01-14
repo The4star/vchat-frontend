@@ -6,11 +6,11 @@
 
     .message-container-bot {
         margin: 10px;
-        background: $chatbot-message-container-color;
+        background: $chatbot-message-container-color !important;
         width: 60%;
         border-radius: 10px;
         padding: 5px;
-        color: #fafafa;
+        color: $chatbot-message-text-color !important;
         text-align: left;
         margin-left: auto;
 
@@ -20,6 +20,7 @@
 
         p {
             margin: 5px;
+            color: $chatbot-message-text-color !important;
         }
 
         .cards-container {
@@ -32,11 +33,11 @@
 
     .message-container-bot-cards {
         margin: 10px;
-        background: $chatbot-message-container-color;
+        background:  !important;
         width: 94%;
         border-radius: 10px;
         padding: 5px;
-        color: #fafafa;
+        color: $chatbot-message-text-color !important;
         text-align: left;
 
         h3 {
@@ -45,6 +46,7 @@
 
         p {
             margin: 5px;
+            color: $chatbot-message-text-color !important;
         }
 
         .cards-container {
@@ -63,15 +65,31 @@
             justify-content: space-around;
             flex: 0 0 auto;
         }
-    }
 
+    
+    }
+    .message-container-script {
+            margin: 10px;
+            font-size: 11px;
+            background: $chatbot-message-container-color !important;
+            width: 90%;
+            border-radius: 10px;
+            padding: 5px;
+            color: $chatbot-message-text-color !important;
+            text-align: left;
+            margin-left: auto;
+
+            p {
+              color: $chatbot-message-text-color !important;
+            }
+        }
     .message-container-user {
         margin: 10px;
-        background: $user-message-container-color;
+        background: $user-message-container-color !important;
         width: 60%;
         border-radius: 10px;
         padding: 5px;
-        color: rgb(51, 49, 49);
+        color: $user-message-text-color !important;
         text-align: left;
 
         h3 {
@@ -79,7 +97,8 @@
         }
 
         p {
-            margin: 5px;
+          color: $user-message-text-color !important;
+          margin: 5px;
         }
     }
     

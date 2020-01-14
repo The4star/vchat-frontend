@@ -1,6 +1,7 @@
 @import "../../style-variables.scss";
 
 .hidden-chatbot {
+    z-index: 10000;
     position: fixed;
     right: 50px;
     bottom: 30px;
@@ -23,6 +24,7 @@
 }
 
 .chatbot {
+    z-index: 10000;
     position: fixed;
     right: 50px;
     bottom: 30px;
@@ -45,7 +47,7 @@
         justify-content: space-between;
         margin: 10px;
         padding: 5px;
-        color: #ACA4A4;
+        color: #ACA4A4 !important;
         font-size: 20px;
 
         .logowrapper {
@@ -58,19 +60,29 @@
             img {
                 vertical-align: bottom
             }
+            p {
+              color: #ACA4A4 !important;
+            }
         }
 
         .text {
-            margin: 10px;
+          display: flex;
+          margin: 10px 0px 10px 10px;
         }
 
-        .close-button {
+        .close-button, .injection-button {
             cursor: pointer;
             line-height: 0;
             display: flex;
+            margin: 0px 20px 0 0;
+            color: #ACA4A4 !important;
+
+            p {
+              color: #ACA4A4 !important;
+            }
 
             &:hover {
-                color: black;
+                color: black !important;
                 transition: .5s;
             }
         }
@@ -95,12 +107,12 @@
     }
 
     .submit{
-        width: 9%;
+        width: 10%;
         height: 50px;
-        background: $submit-button-color;
+        background: $submit-button-color !important;
         border: none;
         border-radius: 0 0 10px;
-        color: $submit-icon-color;
+        color: $submit-icon-color !important;
         cursor: pointer;
     }
 }
@@ -119,6 +131,20 @@
         .messages-container{
             width: 100%;
             height: 65%;
+        }
+
+        .text {
+          display: flex;
+          justify-content: space-around;
+          margin: 10px 0px !important;
+        }
+
+        .close-button, .injection-button {
+            cursor: pointer;
+            line-height: 0;
+            display: flex;
+            font-size: 15px;
+            margin: 0 10px !important;
         }
     }
 
