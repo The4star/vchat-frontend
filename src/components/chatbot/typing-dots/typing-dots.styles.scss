@@ -9,13 +9,13 @@ div#wave {
     height:35px;
     margin: 10px 15px 10px auto;
     border-radius: 50px;
-    background: $typing-dot-background-color;
+    background: $typing-dot-background-color !important;
 	.dot {
 		width:12px;
 		height:12px;
 		border-radius:50%;
 		margin-right:3px;
-		background:$typing-dot-color;
+		background:$typing-dot-color !important;
 		animation: wave 1.3s linear infinite;
 
 		&:nth-child(2) {
