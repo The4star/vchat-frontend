@@ -236,7 +236,7 @@ class Chatbot extends React.Component {
         }
       })
     
-      const scriptMessage = `Here's your injection script. Copy and paste it into your website just before the closing </body> tag.`
+      const scriptMessage = `Your injection script has been copied to your clipboard. You can now paste it into your website just before the closing </body> tag. If you accidentally copy something else you can copy the script again from below`
       const allMessages = []
       const splitMessages = scriptMessage.split(".", 5)
       splitMessages.map(splitMessage => {
@@ -249,7 +249,7 @@ class Chatbot extends React.Component {
           }
           return allMessages
       })
-      
+      this.copyToClipboard(injectionScript)
       const scriptMsg = {
         speaker: 'vchat',
         script: injectionScript
@@ -259,6 +259,17 @@ class Chatbot extends React.Component {
       this.printMessageswithdelay(allMessages, 0)
     }
 
+    copyToClipboard = (str) => {
+
+      const el = document.createElement('textarea');
+      el.value = str;
+      el.setAttribute('readonly', '')
+      el.style = {position: 'absolute', left: '-9999px'};
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+    }
     isDeployedSite = () => {
       if (window.location.href === deployedURL) {
         return true
