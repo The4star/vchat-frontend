@@ -30,6 +30,7 @@ class Chatbot extends React.Component {
           cookies.set('userId', uuid(), {path: '/'})  
         }
     }
+
     resolveAfterXSeconds = (x) => {
         return new Promise((resolve, reject) => {
             setTimeout(() =>{ 
@@ -37,6 +38,7 @@ class Chatbot extends React.Component {
             }, x * 1000)
         })
     }
+
     componentDidMount = async () => {
         await this.getChatHistory();
     }
@@ -197,8 +199,17 @@ class Chatbot extends React.Component {
         this.textQuery(payload);
     }
 
-    toggleBot = () => {
-        this.setState({hidden: !this.state.hidden})
+    toggleBot = async () => {
+      const chatbot = document.querySelector('.chatbot') 
+      const  messagesContainer = document.querySelector('.messages-container')
+
+      if (chatbot && this.state.hidden === false) {
+        chatbot.classList = 'chatbot disappear';
+        messagesContainer.classList = 'messages-container disappear';
+        await this.resolveAfterXSeconds(.4) 
+      }
+    
+      this.setState({hidden: !this.state.hidden})
     }
 
     handleSubmit = async(e) => {
