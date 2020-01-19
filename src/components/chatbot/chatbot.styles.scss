@@ -33,13 +33,30 @@
     box-shadow: 2px 2px 5px black;
     border-radius: 10px;
     background-color: white;
-    // -webkit-animation: grow 1s ease;
-    // animation: grow 1s ease;
+    -webkit-animation: growbot .7s ease;
+    animation: growbot .7s ease;
+
+    &.disappear {
+      opacity: 0;
+      height: 0%;
+      width:0%;
+      transition: .7s;
+    }
 
     .messages-container{
+        -webkit-animation: fade-message .7s ease;
+        animation: fade-message .7s ease;
         height: 470px;
         width: 500px;
         overflow: auto;
+
+        &.disappear {
+          opacity: 0;
+          height: 0%;
+          width:0%;
+          transition: .7s;
+        }
+
     }
 
     .main-title {
@@ -117,10 +134,16 @@
     }
 }
 
-@keyframes grow {
-    0%   { height: 10%; width: 10%; position: absolute;}
-    100% { height: 650px; width: 500px; position: absolute;}
+@keyframes growbot {
+    0%   { height: 10%; width: 10%; opacity: 0;}
+    100% { height: 650px; width: 500px; opacity: 1;}
 }
+
+@keyframes fade-message {
+  0%   { height: 0%; width: 0%; opacity: .1;}
+  100% { height: 470px; width: 500px; opacity: 1; }
+}
+
 
 @media only screen and (max-width: 600px) {
     .chatbot {
@@ -152,9 +175,14 @@
         right: 10px;
     }
 
-    @keyframes grow {
+    @keyframes growbot {
         0%   { height: 10%; width: 10%;}
         100% { height: 650px; width: 95%; }
     }
-   
+
+    @keyframes fade-message {
+      0%   { height: 0%; width: 0%; opacity: .1;}
+      100% { height: 65%; width: 100%; opacity: 1; }
+    }
+
   }
